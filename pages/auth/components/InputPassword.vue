@@ -3,8 +3,8 @@
 		<input-item :label="label" :active="active">
 			<slot></slot>
 			<div class="password" slot="append" @tap="handleClick">
-				<img v-if="!showPasswrod" src="@/static/icons/password-view.svg" alt="">
-				<img v-if="showPasswrod" src="@/static/icons/password-not-view.svg" alt="">
+				<image v-if="!showPasswrod" src="../../static/icons/password-view.svg" alt=""></image>
+				<image v-if="showPasswrod" src="@/static/icons/password-not-view.svg" alt=""></image>
 			</div>
 		</input-item>
 	</div>
@@ -41,7 +41,7 @@ export default {
 		line-height: 100upx;
 		margin-left: 35upx;
 		text-align: center;
-		img {
+		image {
 			width: 32upx;
 			height: 30upx;
 		}

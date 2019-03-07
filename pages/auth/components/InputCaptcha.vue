@@ -19,6 +19,7 @@ export default {
 		label: {type:String, required:true}, //输入组的标题
 		active: {type: [Boolean, Number], default: false} ,// 输入款激活状态
 		activeBtn: {type: [Boolean, Number], default: false} ,// 获取激活码按钮激活状态
+		channel:{type: String, required:true}, // 获取验证码使用途径
 		telephone: {type: [String, Number], default: ''}
 	},
 	
@@ -46,7 +47,7 @@ export default {
 				return false;
 			}
 			
-			GetCaptcha({telephone: this.telephone}).then((res) => {
+			GetCaptcha({telephone: this.telephone,channel: this.channel}).then((res) => {
 				uni.showToast({
 					title: res.message,
 					icon: 'none',

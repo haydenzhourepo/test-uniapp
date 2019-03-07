@@ -1,7 +1,7 @@
 <template>
 	<div class="register-page">
 		<return-tip>
-			<span>登录</span>
+			<span @tap="goLoginPage">登录</span>
 		</return-tip>
 		
 		<div class="content-container">
@@ -13,7 +13,7 @@
 				 v-model="telephone"
 				 />
 			</input-item>
-			<input-captcha class="input-item" label="验证码" :active="active.captcha" :active-btn="activeCaptchaBtn"  :telephone="telephone">
+			<input-captcha class="input-item" label="验证码" :active="active.captcha" :active-btn="activeCaptchaBtn"  :telephone="telephone" channel="register">
 				<input type="number"
 				:maxlength="6"  placeholder="6位验证码"
 				 @focus="isFocus('captcha')" 
@@ -41,8 +41,7 @@ import InputCaptcha from "./components/InputCaptcha.vue"
 import InputPassword from "./components/InputPassword.vue"
 import BigButton from "./components/BigButton.vue"
 
-// == request ==
-import { Register } from "@/api/auth.js"
+
 export default {
 	components:{ReturnTip, InputItem, InputCaptcha, InputPassword, BigButton},
 	data() {
@@ -140,6 +139,13 @@ export default {
 		},
 		handelPasswrodIconTap(){
 			this.showPassword = !this.showPassword
+		},
+		
+		goLoginPage() {
+			// 
+			uni.navigateTo({
+				url: '/pages/auth/login'
+			});
 		}
 		
 	}

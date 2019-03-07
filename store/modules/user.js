@@ -1,5 +1,5 @@
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { Register } from '@/api/auth'
+import { Register, Login } from '@/api/auth'
 
 const user = {
 	state: {
@@ -50,17 +50,23 @@ const user = {
 			})
 		},
 		// 登录
-		Login({ commit }, userInfo) {
-		  const username = userInfo.username.trim()
+		login({ commit }, {telephone, password, captcha}) {
+			
 		  return new Promise((resolve, reject) => {
-			login(username, userInfo.password).then(response => {
-			  const data = response.data
-			  setToken(data.token)
-			  commit('SET_TOKEN', data.token)
-			  resolve()
-			}).catch(error => {
-			  reject(error)
-			})
+				Login({telephone, password, captcha}).then(response => {
+					const data = response.data
+					setToken(data.access_token)
+					
+					commit('SET_TOKEN', data.access_token)
+					commit('SET_NICKNAME', data.user_info.nick_name)
+					commit('SET_AVATAR', data.user_info.avatar)
+					commit('SET_TELEPHONE', data.user_info.telephone)
+					commit('SET_SEX', data.user_info.sex)
+					
+					resolve()
+				}).catch(error => {
+					reject(error)
+				})
 		  })
 		},
 

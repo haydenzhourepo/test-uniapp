@@ -1,7 +1,7 @@
 <template>
 	<div class="return-tip">
-		<div class="left">
-			<img src="@/static/icons/left-arrow.svg" alt="">
+		<div class="left" @tap="goBack">
+			<image src="../../static/icons/left-arrow.svg" alt=""></image>
 		</div>
 		<div class="right">
 			<slot></slot>
@@ -10,6 +10,21 @@
 </template>
 
 <script>
+export default {
+	data(){
+		return {
+			
+		}
+	},
+	
+	methods:{
+		goBack(){
+			uni.navigateBack({
+				delta: 1
+			});
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped>
@@ -18,9 +33,9 @@
 	justify-content: space-between;
 	padding: 28upx 30upx;
 	.left {
-		img {
-			width: 45upx;
-			height: 45upx;
+		image {
+			width: 40upx;
+			height: 40upx;
 		}
 	}
 	.right {
