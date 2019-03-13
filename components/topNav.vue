@@ -31,6 +31,7 @@ export default {
 .return-tip {
 	display: flex;
 	justify-content: space-between;
+	margin-top: 33upx;
 	padding: 28upx 30upx;
 	.left {
 		image {

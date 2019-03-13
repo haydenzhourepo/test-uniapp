@@ -1,14 +1,17 @@
 <template>
 	<div class="index-page">
 		<product-list></product-list>
+
+       <home-nav></home-nav>
 	</div>
 </template>
 
 <script>
+import HomeNav from '@/components/footerNav/HomeNav.vue'
 import ProductList from '@/components/productList/ProductList.vue'
 
 export default {
-	components:{ ProductList},
+	components:{HomeNav, ProductList},
 	data() {
 		return {
 			title: 'Hello'

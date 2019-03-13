@@ -1,16 +1,16 @@
 <template>
-	<div class="home-nav">
-		<footer-nav-base>
-			<div class="nav-item" v-for="(item, index) in navLists" :key="index" @tap="goGo(item.path)">
-				<div class="img">
+	<view class="home-nav">
+		<view class="footer-wraper">
+			<view class="nav-item" v-for="(item, index) in navLists" :key="index" @tap="goGo(item.path)">
+				<view class="img">
 					<image :src="item.path == currentPath ? item.imgActive : item.img" alt=""></image>
-				</div>
-				<div class="text">
-					<span :class="item.path == currentPath ? 'active' : '' ">{{ item.text }}</span>
-				</div>
-			</div>
-		</footer-nav-base>
-	</div>
+				</view>
+				<view class="text">
+					<text :class="item.path == currentPath ? 'active' : '' ">{{ item.text }}</text>
+				</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
@@ -20,30 +20,30 @@ export default {
 	data() {
 		return {
 			navLists:[
-// 				{
-// 					img: require('@/static/icons/home.svg'),
-// 					imgActive: require('@/static/icons/home-active.svg'),
-// 					path: 'pages/index/index',
-// 					text: '首页',
-// 				},
-// 				{
-// 					img: require('@/static/icons/category.svg'),
-// 					imgActive: require('@/static/icons/category-active.svg'),
-// 					path: 'pages/category/index',
-// 					text: '商品分类'
-// 				},
-// 				{
-// 					img: require('@/static/icons/cart.svg'),
-// 					imgActive: require('@/static/icons/cart-active.svg'),
-// 					path: 'pages/cart/index',
-// 					text: '购物车'
-// 				},
-// 				{
-// 					img: require('@/static/icons/profile.svg'),
-// 					imgActive: require('@/static/icons/profile-active.svg'),
-// 					path: 'pages/profile/index',
-// 					text: '我的'
-// 				}
+				{
+					img: require('@/static/icons/main-tarbar/home.png'),
+					imgActive: require('@/static/icons/main-tarbar/home-active.png'),
+					path: 'pages/index/index',
+					text: '首页',
+				},
+				{
+					img: require('@/static/icons/main-tarbar/category.png'),
+					imgActive: require('@/static/icons/main-tarbar/category-active.png'),
+					path: 'pages/category/index',
+					text: '商品分类'
+				},
+				{
+					img: require('@/static/icons/main-tarbar/cart.png'),
+					imgActive: require('@/static/icons/main-tarbar/cart-active.png'),
+					path: 'pages/cart/index',
+					text: '购物车'
+				},
+				{
+					img: require('@/static/icons/main-tarbar/profile.png'),
+					imgActive: require('@/static/icons/main-tarbar/profile-active.png'),
+					path: 'pages/profile/index',
+					text: '我的'
+				}
 				
 			],
 			
@@ -67,25 +67,40 @@ export default {
 
 <style lang="scss" scoped>
 .home-nav {
-	.nav-item {
-		flex: 1;
-		text-align: center;
-		color: #999999;
-		.img {
-			width: 44upx;
-			height: 44upx;
-			margin: auto;
-			img {
-				width: 100%;
-			}
-		}
+	width: 100%;
+	height: 96upx;
+	position: fixed;
+	bottom: 0;
+	background:rgba(255,255,255,0.95);
+	box-shadow:0px -4px 10px 0px rgba(204,204,204,0.2);
+	.footer-wraper {
+		display: flex;
+		justify-content: space-around;
+		height: 100%;
+		padding: 17upx 0 8upx 0;
 		
-		.text {
-			font-size: 20upx;
-			span.active {
-				color: $uni-text-color-green;
+		.nav-item {
+			flex: 1;
+			text-align: center;
+			color: #999999;
+			.img {
+				width: 44upx;
+				height: 44upx;
+				margin: auto;
+				image {
+					width: 44upx;
+					height: 44upx;
+				}
+			}
+			
+			.text {
+				font-size: 20upx;
+				span.active {
+					color: $uni-text-color-green;
+				}
 			}
 		}
 	}
+	
 }
 </style>

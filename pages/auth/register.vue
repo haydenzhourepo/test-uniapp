@@ -1,8 +1,8 @@
 <template>
 	<div class="register-page">
-		<return-tip>
+		<top-nav>
 			<span @tap="goLoginPage">登录</span>
-		</return-tip>
+		</top-nav>
 		
 		<div class="content-container">
 			<p class="title">注册</p>
@@ -35,7 +35,7 @@
 
 <script>
 // == components ==
-import ReturnTip from "@/components/ReturnTip.vue"
+import topNav from "@/components/topNav.vue"
 import InputItem from "./components/InputItem.vue"
 import InputCaptcha from "./components/InputCaptcha.vue"
 import InputPassword from "./components/InputPassword.vue"
@@ -43,7 +43,7 @@ import BigButton from "./components/BigButton.vue"
 
 
 export default {
-	components:{ReturnTip, InputItem, InputCaptcha, InputPassword, BigButton},
+	components:{topNav, InputItem, InputCaptcha, InputPassword, BigButton},
 	data() {
 		return {
 			telephone:'',
